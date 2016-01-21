@@ -1,3 +1,4 @@
+import datetime
 import json
 from time import sleep
 
@@ -13,13 +14,18 @@ class RelayHandler(tornado.web.RequestHandler):
 
     def get(self):
         self.response_arr = []
-        self.add_to_response('Testing Relay')
+        self.add_to_response("testing Relay {0}".format(datetime.datetime.now()))
+        self.test_db()
         self.test_the_relay()
         self.add_to_response('Done Testing Relay')
         self.write(json.dumps(self.response_arr))
 
     def add_to_response(self, the_message):
         self.response_arr.append(the_message)
+
+    def test_db(self):
+        the_doc = self.application.db.info()
+        self.add_to_response(json.dumps(the_doc))
 
     def test_the_relay(self):
 	wiringpi2.wiringPiSetupGpio() # go with GPIO non-sequential numbers 
