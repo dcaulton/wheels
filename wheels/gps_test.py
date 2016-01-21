@@ -2,20 +2,19 @@ import wiringpi2
 
 #quick and dirty command line script to test the gps antenna
 
-serial = wiringpi2.serialOpen('/dev/ttyAMA0',9600)
-get_array = []
-letter_array = []
-for i in range(1,1000):
-    get_array.append(wiringpi2.serialGetchar(serial))
+def test_the_gps()
+    serial = wiringpi2.serialOpen('/dev/ttyAMA0',9600)
+    get_array = []
+    letter_array = []
+    for i in range(1,1000):
+	get_array.append(wiringpi2.serialGetchar(serial))
 
-for x in get_array:
-    letter_array.append(chr(x))
+    for x in get_array:
+	letter_array.append(chr(x))
 
-letter_string = ''.join(letter_array)
+    letter_string = ''.join(letter_array)
 
-#print get_array
-#print letter_array
-print letter_string
+    print letter_string
 
 #for adafruit ultimate gps breakout:
 #connect rpi tx to gps rx, rpi rx to gps tx, and give the gps 3.3v and a ground
