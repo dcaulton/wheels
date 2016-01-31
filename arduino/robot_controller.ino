@@ -1,11 +1,18 @@
 #include <AFMotor.h>
 
-//control a 4 wheel robot via serial port with a protocol that looks like this:
+//arduino sketch for the wheels project.  
+// I'm using an Arduino Uno and an Osepp motor shield 
+// Osepp shield using this library: https://github.com/adafruit/Adafruit-Motor-Shield-library/blob/master/AFMotor.cpp
+
+//I'm controlling a 4 wheel robot via serial port with a protocol that looks like this:
 // p0,XXX stop  (int XXX is ignored but needed for now)
 // p1,255 forward (eventually at speed 255)
 // p2,255 backward (eventually at speed 255)
 // p3,122 turn (eventually to heading 122)
 // pXX,YY display status (ints XX and YY are ignored as long as XX isn't 0,1,2 or 3)
+// 
+// so, 'p' is always the first char, then I need 'int, int'
+
 
 AF_DCMotor motor1(1);
 AF_DCMotor motor2(2);
