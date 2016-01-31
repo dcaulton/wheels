@@ -8,6 +8,7 @@ import tornado.web
 from tornado.options import define, options
 
 from relay import RelayHandler
+from compass import CompassHandler
 
 define("port", default=8000, help="run on the given port", type=int)
 
@@ -15,7 +16,9 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers=[
             (r"/", IndexHandler),
-            (r"/relay/*", RelayHandler)
+            (r"/relay/*", RelayHandler),
+#            (r"/distance/*", DistanceHandler),
+            (r"/compass/*", CompassHandler)
         ]
         self.set_up_db()
         tornado.web.Application.__init__(self, handlers, debug=True)

@@ -5,13 +5,13 @@ from time import sleep
 import tornado.web
 import wiringpi2
 
-#quick and dirty script to test the relay connections.
+#quick and dirty script to test the distance between the front of the robot and the nearest obstacle
 #invoke with sudo privs
-#when all is well, relays 1, 2, 3 and 4 will turn on, then off, in sequence
 
-class RelayHandler(tornado.web.RequestHandler):
+class DistanceHandler(tornado.web.RequestHandler):
     response_arr = []
 
+    @tornado.web.asynchronous
     def get(self):
         self.response_arr = []
         self.add_to_response("testing Relay {0}".format(datetime.datetime.now()))
