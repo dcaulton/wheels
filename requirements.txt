@@ -1,10 +1,4 @@
-backports-abc==0.4
-backports.ssl-match-hostname==3.5.0.1
-certifi==2015.11.20.1
-chronos==0.3
-CouchDB==1.0
-singledispatch==3.4.0.3
-six==1.10.0
-tornado==4.3
+Django==1.9.5
+djangorestframework==3.3.3
+pyserial==3.0.1
 wheel==0.24.0
-wiringpi2==1.1.1
