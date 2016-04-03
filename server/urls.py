@@ -16,7 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import lidar.urls
+import server.views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^lidar/', include('lidar.urls', namespace='lidar')),
+    url(r'^$', server.views.index),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
