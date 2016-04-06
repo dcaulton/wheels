@@ -3,6 +3,7 @@ wheels
 - Arduino with a Motor shield controlling the robot
 - RPi controls the Arduino via the serial port
 - A Neato Piccolo Lidar unit provides the distance and direction of all nearby obstacles.  It is accessed via serial communications
+- A compass accessed via I2C
 
 
 interfaces are exposed to the outside with Python 2.7, Django, DjangoRestFramework
